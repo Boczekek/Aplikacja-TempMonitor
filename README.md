@@ -22,6 +22,6 @@ https://www.youtube.com/watch?v=ebJpXs2-WgM
 - [wymagania edytorskie](https://uczelniaoswiecim.edu.pl/instytuty/new-instytut-nauk-inzynieryjno-technicznych/proces-dyplomowania/)
 - [karta projektu](https://pelo.com.pl/index.php?page=materialywzorcowe.html)
 - ogólnie to co w inżynierce mhm
-- kod programu, listingi, czcionka system
+- kod programu, listingi, czcionka "system"
 - może być dodatkowo prezentacja w powerpoint ale lepiej zrobić dokładnego PDFa
 - filmik może się przydać
