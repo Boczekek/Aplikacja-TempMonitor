@@ -26,14 +26,14 @@ https://www.youtube.com/watch?v=ebJpXs2-WgM
 - może być dodatkowo prezentacja w powerpoint ale lepiej zrobić dokładnego PDFa
 - filmik może się przydać
 
-!!!
-  !!!
-    !!!
-      !!!
-        !!!
-          wymagania funkcjonalne i niefunkcjonalne w tabeli!
-        !!!
-      !!!
-    !!!
-  !!!
-!!!
+!!!  
+  !!!  
+    !!!  
+      !!!  
+        !!!  
+          wymagania funkcjonalne i niefunkcjonalne w tabeli!  
+        !!!  
+      !!!  
+    !!!  
+  !!!  
+!!!  
