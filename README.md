@@ -25,3 +25,15 @@ https://www.youtube.com/watch?v=ebJpXs2-WgM
 - kod programu, listingi, czcionka "system"
 - może być dodatkowo prezentacja w powerpoint ale lepiej zrobić dokładnego PDFa
 - filmik może się przydać
+
+!!!
+  !!!
+    !!!
+      !!!
+        !!!
+          wymagania funkcjonalne i niefunkcjonalne w tabeli!
+        !!!
+      !!!
+    !!!
+  !!!
+!!!
