@@ -17,5 +17,12 @@ Po stronie serwera:
 \end{itemize}
 
 \section{Instrukcja instalacji}
+\begin{itemize}
+	\item Połącz komputer (serwer) i telefon do tej samej sieci Wi-Fi.
+	\item W pliku MainActivity.java w Android Studio \\ wpisz to IP w linii \texttt{.baseUrl("http://:8080/")} jeśli używasz emulatora nic nie zmieniaj.
+	\item Uruchom bazę danych Docker/XAMPP oraz aplikację SpringBoot.
+	\item Podłącz telefon do komputera i w Android Studio kliknij zieloną strzałkę Run.
+\end{itemize}
 
 \section{Instrukcja użytkowania}
+Po uruchomieniu aplikacji użytkownik otrzymuje natychmiastowy dostęp do aktualnej temperatury oraz chronologicznej historii wszystkich zapisów. Dane w programie aktualizują się automatycznie co dziesięć sekund, co zapewnia stały podgląd na najświeższe odczyty bez konieczności ręcznego odświeżania ekranu. System inteligentnie zarządza baterią, wstrzymując pobieranie informacji w momencie zminimalizowania aplikacji i wznawiając pracę zaraz po jej ponownym otwarciu.

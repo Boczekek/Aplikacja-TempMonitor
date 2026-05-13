@@ -2,7 +2,33 @@
 Rozdział przedstawia sposób sprawdzenia poprawności działania aplikacji oraz ocenę uzyskanych rezultatów. Testy skupiają się na weryfikacji poprawności działania oraz zgodności z wymaganiami funkcjonalnymi i niefunkcjonalnymi.
 
 \section{Testy funkcjonalne}
+\begin{table}[ht!]
+\centering
+\caption{Tabela wyników testów funkcjonalnych}
+\label{tab:wyniki}
+\begin{tabular}{lll}
+\toprule
+Test                            & Oczekiwany Wyniki             & Wynik \\  
+\midrule
+Połączenie z API                & Dane zwracane w JSON          & Pozytywny \\
+Wyświetlanie aktualnej temp.    & Widoczna poprawna wartość     & Pozytywny \\ 
+Wyświetlanie dziennika          & Lista rekordów                & Pozytywny \\
+\bottomrule 
+\end{tabular}
+\sourcetab{opracowanie własne}
+\end{table}
 
 \section{Testy niefunkcjonalne}
+Test wydajności
+\begin{itemize}
+	\item Czas odpowiedzi API: akceptowalny
+	\item Aplikacja reaguje płynnie. \\
+\end{itemize}
+
+Test kompatybilności
+\begin{itemize}
+	\item Android 8, 10, 13 – działanie poprawne.
+\end{itemize}
 
 \section{Wyniki testów}
+System działa poprawnie i spełnia wszystkie założenia funkcjonalne. Komunikacja między ESP32, bazą danych i aplikacją mobilną przebiega bez błędów. Dane są poprawnie zapisywane i odczytywane. Interfejs użytkownika jest czytelny i intuicyjny.

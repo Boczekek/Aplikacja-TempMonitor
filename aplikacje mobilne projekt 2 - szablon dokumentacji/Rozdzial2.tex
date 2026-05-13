@@ -5,8 +5,8 @@ jak i niefunkcjonalne, a~także opis architektury.
 \section{Wymagania funkcjonalne}
 Do kluczowych wymagań funkcjonalnych należą:
 \begin{itemize}
-    \item splikacja musi łączyć się z serwerem opartym o SpingBoot
-    \item zapis danych do lokalnej relacyjnej bazy SQL lub nierelacyjnej na serwerze
+    \item aplikacja musi łączyć się z serwerem opartym o SpingBoot,
+    \item zapis danych do lokalnej relacyjnej bazy SQL lub nierelacyjnej na serwerze,
     \item aplikacja musi pobierać aktualny pomiar temperatury,
     \item aplikacja musi wyświetlać dziennik zapisów,
     \item dane muszą być prezentowane w sposób czytelny,
@@ -19,15 +19,15 @@ Rozwiązanie powinno spełniać następujące wymagania jakościowe:
 \begin{itemize}
     \item kompatybilność z systemami Android 8.0+,
     \item czas odpowiedzi API mniejszy niż 300ms,
-    \item dostępność systemu większa niż 99%,
+    \item dostępność systemu większa niż 99\%,
     \item szyfrowanie SSL/TLS dla transmisji danych,
     \item dostępność zgodna z WCAG 2.1 na poziomie AA.
 \end{itemize}
 
 \section{Architektura rozwiązania}
-Architektura systemu została zaprojektowana w modelu warstwowym (wielowarstwowym), w którym poszczególne komponenty odpowiadają za ściśle określone zadania. Rozdzielenie funkcjonalności na warstwy zwiększa czytelność projektu, ułatwia jego rozwój oraz umożliwia niezależne modyfikowanie poszczególnych elementów systemu. Całość rozwiązania opiera się na komunikacji sieciowej w modelu klient–serwer.
+Architektura systemu została zaprojektowana w modelu warstwowym, w którym poszczególne komponenty odpowiadają za ściśle określone zadania. Rozdzielenie funkcjonalności na warstwy zwiększa czytelność projektu, ułatwia jego rozwój oraz umożliwia niezależne modyfikowanie poszczególnych elementów systemu. Całość rozwiązania opiera się na komunikacji sieciowej w modelu klient–serwer.
 
-System składa się z czterech głównych warstw: warstwy pomiarowej (sprzętowej), warstwy komunikacyjnej i serwerowej (API), warstwy bazy danych oraz warstwy aplikacji mobilnej.
+System składa się z czterech głównych warstw: warstwy sprzętowej, warstwy komunikacyjnej i serwerowej, warstwy bazy danych oraz warstwy aplikacji mobilnej.
 
 \section{Warstwa sprzętowa}
 \begin{itemize}
@@ -54,7 +54,7 @@ API odpowiada za:
 \begin{table}[ht!]
 \centering
 \caption{Struktura tabeli temperatura}
-\label{tab:przyklad}
+\label{tab:temperatura}
 \begin{tabular}{lll}
 \toprule
 Pole        & Typ danych \\  

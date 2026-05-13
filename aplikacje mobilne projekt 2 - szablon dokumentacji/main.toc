@@ -16,17 +16,19 @@
 \contentsline {section}{\numberline {3.1}Środowisko i narzędzia}{8}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Struktura projektu}{8}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Interfejs użytkownika}{8}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Wyświetlanie aktualnych danych}{8}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Implementacja dziennika}{8}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Implementacja i uruchomienie}{9}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Wymagania sprzętowe}{9}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Instrukcja instalacji}{9}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Instrukcja użytkowania}{9}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Testy i weryfikacja}{10}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Testy funkcjonalne}{10}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Testy niefunkcjonalne}{10}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Wyniki testów}{10}{section.5.3}%
-\contentsline {chapter}{Podsumowanie}{11}{chapter*.4}%
-\contentsline {chapter}{Spis rysunk\'ow}{12}{section*.7}%
-\contentsline {chapter}{Spis tabel}{13}{section*.8}%
-\contentsline {chapter}{Spis listingów}{15}{chapter*.9}%
+\contentsline {section}{\numberline {3.4}Pobieranie danych z REST API}{10}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Automatyczne odświeżanie co 10 sekund}{10}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Logika wyświetlania aktualnej temperatury}{10}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Wyświetlanie dziennika}{10}{section.3.7}%
+\contentsline {chapter}{\numberline {4}Implementacja i uruchomienie}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Wymagania sprzętowe}{11}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Instrukcja instalacji}{11}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Instrukcja użytkowania}{11}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Testy i weryfikacja}{12}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Testy funkcjonalne}{12}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Testy niefunkcjonalne}{12}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Wyniki testów}{12}{section.5.3}%
+\contentsline {chapter}{Podsumowanie}{13}{chapter*.6}%
+\contentsline {chapter}{Spis rysunk\'ow}{14}{section*.9}%
+\contentsline {chapter}{Spis tabel}{15}{section*.10}%
+\contentsline {chapter}{Spis listingów}{17}{chapter*.11}%
