@@ -31,7 +31,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://192.168.18.78:3306/baza
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/baza?allowPublicKeyRetrieval=true&useSSL=false
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: rootpassword
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
