@@ -9,7 +9,7 @@ const char* ssid     = "Wifi XPP";
 const char* password = "123456789";
 
 unsigned long poprzedniCzas = 0;
-const long interwal = 10000; // wysyłaj co 10 sekund dla testu
+const long interwal = 10000; // wysyłaj co 10 sekund
 
 void setup() {
   Serial.begin(115200);
@@ -22,7 +22,7 @@ void setup() {
 
   IPAddress IP = WiFi.softAPIP();
   Serial.print("Adres IP punktu dostępu (ESP32): ");
-  Serial.println(IP); // To będzie 192.168.4.1
+  Serial.println(IP);
 }
 
 void wyslijDane(float temp) {
