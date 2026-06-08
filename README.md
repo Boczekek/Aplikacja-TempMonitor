@@ -140,46 +140,14 @@ Po poprawnym uruchomieniu:
 
 # Konfiguracja ESP32
 
-1. Otwórz projekt w Arduino IDE.
-2. Uzupełnij:
-
-   * nazwę sieci Wi-Fi,
-   * hasło,
-   * adres IP serwera.
-3. Wgraj kod na ESP32.
-
-Przykładowy endpoint:
-
-```cpp
-http.begin("http://192.168.4.2:8080/api/pomiary/arduino");
-```
-
----
-
-# Uruchomienie aplikacji Android
-
-1. Otwórz projekt w Android Studio.
-2. Ustaw adres IP backendu.
-3. Zbuduj aplikację.
-4. Zainstaluj APK na urządzeniu.
-
-Aplikacja:
-
-* wyświetla aktualną temperaturę,
-* pokazuje historię pomiarów,
-* automatycznie odświeża dane.
+1. Otwórz plik temp123.ino za pomocą Arduino IDE.
+2. Wgraj kod na ESP32.
 
 ---
 
 # Uruchomienie interfejsu webowego
 
-Otwórz plik:
-
-```bash
-index.html
-```
-
-w dowolnej nowoczesnej przeglądarce.
+W dowolnej nowoczesnej przeglądarce przejdź do adresu http://localhost:8080/
 
 Interfejs umożliwia:
 
