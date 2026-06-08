@@ -1,0 +1,58 @@
+#include <HTTPClient.h>
+#include <WiFi.h>
+#include "DHTesp.h"
+
+#define DHTpin 15
+DHTesp dht;
+
+const char* ssid     = "Wifi XPP";
+const char* password = "123456789";
+
+unsigned long poprzedniCzas = 0;
+const long interwal = 10000; // wysyłaj co 10 sekund dla testu
+
+void setup() {
+  Serial.begin(115200);
+  dht.setup(DHTpin, DHTesp::DHT11);
+
+  // Ustawienie ESP32 jako Access Point
+  Serial.print("Tworzenie sieci WiFi: ");
+  Serial.println(ssid);
+  WiFi.softAP(ssid, password);
+
+  IPAddress IP = WiFi.softAPIP();
+  Serial.print("Adres IP punktu dostępu (ESP32): ");
+  Serial.println(IP); // To będzie 192.168.4.1
+}
+
+void wyslijDane(float temp) {
+    HTTPClient http;
+    
+    // Adres IP komputera w sieci utworzonej przez ESP32
+    // Zazwyczaj pierwszy podłączony klient dostaje 192.168.4.2
+    http.begin("http://192.168.4.2:8080/api/pomiary/arduino");
+    http.addHeader("Content-Type", "application/json");
+
+    String httpRequestData = "{\"temperatura\":" + String(temp) + "}";
+
+    int httpResponseCode = http.POST(httpRequestData);
+
+    if (httpResponseCode > 0) {
+        Serial.printf("Sukces, kod: %d\n", httpResponseCode);
+    } else {
+        Serial.printf("Błąd połączenia z komputerem: %s\n", http.errorToString(httpResponseCode).c_str());
+        Serial.println("Upewnij się, że komputer jest połączony z WiFi XPP!");
+    }
+    http.end();
+}
+
+void loop() {
+  unsigned long obecnyCzas = millis();
+  if (obecnyCzas - poprzedniCzas >= interwal) {
+    poprzedniCzas = obecnyCzas;
+    float temperature = dht.getTemperature();
+    if (!isnan(temperature)) {
+        wyslijDane(temperature);
+    }
+  }
+}
