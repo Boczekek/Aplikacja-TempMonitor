@@ -13,12 +13,12 @@
 ---
 
 ## ✨ **Funkcjonalności**
-✅ **Monitorowanie w czasie rzeczywistym** – Aktualna temperatura wyświetlana na karcie w górnej części ekranu.
-✅ **Historia pomiarów** – Przewijalna lista z datą, godziną i wartościami, posortowana chronologicznie (najnowsze na górze).
-✅ **Konfiguracja IP serwera** – Możliwość ręcznego wpisania adresu IP serwera (domyślnie `10.0.2.2` dla emulatora).
-✅ **Regulacja czasu odświeżania** – Ustawienie interwału pobierania danych (domyślnie co 10 sekund).
-✅ **Motywy graficzne** – Wybór między trybem **jasnym**, **ciemnym** lub **systemowym** (dostosowującym się do ustawień Androida).
-✅ **Obsługa błędów** – Interaktywny **Snackbar** z przyciskiem "PONÓW" w przypadku braku połączenia.
+✅ **Monitorowanie w czasie rzeczywistym** – Aktualna temperatura wyświetlana na karcie w górnej części ekranu.  
+✅ **Historia pomiarów** – Przewijalna lista z datą, godziną i wartościami, posortowana chronologicznie (najnowsze na górze).  
+✅ **Konfiguracja IP serwera** – Możliwość ręcznego wpisania adresu IP serwera (domyślnie `10.0.2.2` dla emulatora).  
+✅ **Regulacja czasu odświeżania** – Ustawienie interwału pobierania danych (domyślnie co 10 sekund).  
+✅ **Motywy graficzne** – Wybór między trybem **jasnym**, **ciemnym** lub **systemowym** (dostosowującym się do ustawień Androida).  
+✅ **Obsługa błędów** – Interaktywny **Snackbar** z przyciskiem "PONÓW" w przypadku braku połączenia.  
 
 ---
 
