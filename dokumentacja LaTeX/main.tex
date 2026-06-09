@@ -1,0 +1,274 @@
+\documentclass[12pt, a4paper, twoside]{report}
+
+% --- Pakiety podstawowe ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% --- Times New Roman jako czcionka bazowa ---
+\usepackage{mathptmx}
+% --- Dodanie wąskiej czcionki programistycznej ---
+\usepackage[varqu,varl]{zi4} % Inconsolata - smukła, nowoczesna i czytelna czcionka do kodu
+\usepackage[polish]{babel}
+\usepackage{indentfirst, geometry, setspace, graphicx, xcolor, float}
+\usepackage{etoolbox}
+\geometry{inner=3cm, outer=2.5cm, tmargin=2.5cm, bmargin=2.5cm}
+\setlength{\parindent}{0.75cm}
+\usepackage{chngcntr}
+
+% --- POPRAWKA 1: Globalna interlinia ---
+\onehalfspacing 
+
+% --- Kontrola odstępów w listach ---
+\usepackage{enumitem}
+\setlist{nosep, itemsep=0pt, parsep=0pt, topsep=0pt}
+
+% --- Rysunki UML i TikZ ---
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, shapes}
+% --- Ścieżka do rysunków ---
+\usepackage{graphicx}
+\graphicspath{ {./rysunki/} } 
+
+% --- Formatowanie nagłówków ---
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]{\normalfont\fontsize{16}{20}\selectfont\bfseries}{\thechapter.}{0.5em}{}
+\titleformat{name=\chapter,numberless}[hang]{\normalfont\fontsize{16}{20}\selectfont\bfseries}{}{0pt}{}
+\titleformat{\section}[hang]{\normalfont\fontsize{14}{18}\selectfont\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}[hang]{\normalfont\fontsize{14}{18}\selectfont\bfseries}{\thesubsection.}{0.5em}{}
+
+% --- Odstępy przed ponad i po nagłówkach, sekcji i podsekcji ---
+% - 0pt: pierwszy parametr brak odstępu przed 
+% - 0pt: drugi parametr brak odstępu po nagłówku rozdziału
+% - 12pt: trzeci parametr odstęp po nagłówku rozdziału
+
+\titlespacing*{\chapter}{0pt}{0pt}{12pt}      % Rozdział: brak odstępu przed, 12pt po
+\titlespacing*{\section}{0pt}{6pt}{6pt}       % Sekcja: 6pt przed i 6pt po
+\titlespacing*{\subsection}{0pt}{6pt}{6pt}    % Podsekcja: 6pt przed i 6pt po
+
+% --- Formatowanie tytułów spisów (LOF, LOT, LOL) ---
+\usepackage{tocloft}
+\renewcommand{\cfttoctitlefont}{\normalfont\fontsize{16}{20}\selectfont\bfseries}
+\renewcommand{\cftloftitlefont}{\normalfont\fontsize{16}{20}\selectfont\bfseries}
+\renewcommand{\cftlottitlefont}{\normalfont\fontsize{16}{20}\selectfont\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftafterloftitle}{\hfill}
+\renewcommand{\cftafterlottitle}{\hfill}
+% Usunięcie nadmiernego odstępu przed spisem treści
+\cftsetindents{chapter}{0em}{1.15em}
+\setlength{\cftchapnumwidth}{1em}
+\setlength{\cftbeforetoctitleskip}{0pt}
+% Odstępy przed i po tytułach spisów rysunków i tabel
+\setlength{\cftbeforeloftitleskip}{0pt}
+\setlength{\cftafterloftitleskip}{6pt}
+\setlength{\cftbeforelottitleskip}{0pt}
+\setlength{\cftafterlottitleskip}{6pt}
+
+% --- Konfiguracja podpisów ---
+\usepackage{caption}
+% Tabele: Tytuł nad tabelą, format "Tabela 1" <enter> "Tytuł" (bez kropki)
+\captionsetup[table]{
+    labelsep=newline,
+    justification=raggedright,
+    singlelinecheck=false,
+    font={small,normalfont},
+    labelfont={small,normalfont},
+    skip=6pt
+}
+% Rysunki: Format "Rysunek X. Tytuł" (z kropką), label pochylony
+\DeclareCaptionLabelFormat{figureitalic}{\textit{#1 #2}}
+\captionsetup[figure]{
+    labelsep=period,
+    justification=raggedright,
+    singlelinecheck=false,
+    font={small,normalfont},
+    labelformat=figureitalic,
+    skip=6pt
+}
+
+% --- Makra dla źródeł (pochylone) ---
+\newcommand{\sourcefig}[1]{%
+    \vspace{-6pt}
+    \begin{flushright}
+    {\footnotesize\slshape Źródło: #1}
+    \end{flushright}
+}
+\newcommand{\sourcetab}[1]{%
+    \vspace{-6pt}
+    \begin{flushright}
+    {\footnotesize\slshape Źródło: #1}
+    \end{flushright}
+}
+
+% --- Numeracja i odstępy obiektów ---
+\counterwithout{table}{chapter}
+\counterwithout{figure}{chapter}
+\setlength{\intextsep}{12pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{15pt plus 2pt minus 2pt}
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+% --- Globalna czcionka w tabelach (10 pkt) ---
+\AtBeginEnvironment{tabular}{\fontsize{10}{12}\selectfont}
+
+% --- Bibliografia ---
+\usepackage[backend=biber, style=authoryear, sorting=nyt]{biblatex}
+\addbibresource{Bibliografia.bib}
+\addbibresource{Netografia.bib}
+\renewcommand*{\nameyeardelim}{\addcomma\space}
+
+% --- Listingi ---
+\usepackage{booktabs, listings}
+\addto\captionspolish{\renewcommand{\lstlistingname}{Listing}}
+% Usunięcie numeracji rozdziałowej dla listingów
+\AtBeginDocument{\counterwithout{lstlisting}{chapter}}
+% Konfiguracja podpisów listingów - 11pt
+\captionsetup[lstlisting]{
+    labelsep=period,
+    justification=raggedright,
+    singlelinecheck=false,
+    font={small,normalfont},
+    labelfont={small,normalfont},
+    skip=6pt
+}
+% Nazwa spisu listingów
+\renewcommand{\lstlistlistingname}{Spis listingów}
+% Formatowanie nagłówka spisu listingów
+\makeatletter
+\renewcommand\lstlistoflistings{%
+    \cleardoublepage
+    \chapter*{\lstlistlistingname}%
+    \addcontentsline{toc}{chapter}{\lstlistlistingname}%
+    \@starttoc{lol}%
+}
+\makeatother
+
+% --- Listingi ---
+\lstset{
+    backgroundcolor=\color{gray!10}, 
+    % \small i Inconsolata (\ttfamily) sprawią, że kod będzie bardzo zwarty
+    basicstyle=\small\ttfamily\setstretch{0.9}, 
+    columns=fullflexible,    % Najmocniejsze zwężenie odstępów między literami
+    keepspaces=true, 
+    breaklines=true, 
+    tabsize=4,               % Standardowa szerokość tabulacji
+    numbers=left, 
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue}\bfseries, 
+    commentstyle=\color{green!50!black},
+    stringstyle=\color{orange},
+    inputencoding=utf8, 
+    extendedchars=true,
+    literate={ą}{{\k{a}}}1 {ć}{{\'c}}1 {ę}{{\k{e}}}1 {ł}{{\l{}}}1 {ń}{{\'n}}1 {ó}{{\'o}}1 {ś}{{\'s}}1 {ź}{{\'z}}1 {ż}{{\.z}}1
+}
+
+% --- Spis treści (TOC) ---
+\usepackage{tocloft}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftchappagefont}{\normalfont}
+\renewcommand{\cftchapfont}{\normalfont}
+\setlength{\cftbeforechapskip}{0pt}
+
+% --- Kropki po numerach w spisie treści ---
+\renewcommand{\cftchapaftersnum}{.} 
+\renewcommand{\cftsecaftersnum}{.}  
+\renewcommand{\cftsubsecaftersnum}{.}
+
+% ---  Ustawienie odstępu, aby numer z kropką nie nachodził na tekst ---
+\addtolength{\cftchapnumwidth}{0pt}
+\addtolength{\cftsecnumwidth}{0pt}
+\addtolength{\cftsubsecnumwidth}{0pt}
+
+% --- Formatowanie spisu rysunków (LOF) ---
+% Aby wyglądał: "Rysunek 1. Topologia sieci przedsiębiorstwa, opracowanie własne ................................... 23"
+\renewcommand{\cftfigpresnum}{\itshape Rysunek }
+\renewcommand{\cftfigaftersnum}{.\ \normalfont}
+\setlength{\cftfignumwidth}{4.5em}
+\renewcommand{\cftfigleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftfigpagefont}{\normalfont}
+
+% --- Formatowanie spisu tabel (LOT) ---
+\renewcommand{\cfttabpresnum}{Tabela }
+\renewcommand{\cfttabaftersnum}{.\ }
+\setlength{\cfttabnumwidth}{4.5em}
+\renewcommand{\cfttableader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cfttabpagefont}{\normalfont}
+
+% --- Formatowanie spisu listingów (LOL) ---
+\makeatletter
+\renewcommand*\l@lstlisting{\@dottedtocline{1}{0em}{6.5em}}
+\makeatother
+\renewcommand{\lstlistingname}{Listing}
+% Prefix i suffix dla numeru listingu
+\let\oldlstlistoflistings\lstlistoflistings
+\renewcommand{\lstlistoflistings}{%
+  \begingroup
+  \let\oldnumberline\numberline
+  \renewcommand{\numberline}[1]{Listing ##1. }%
+  \oldlstlistoflistings
+  \endgroup
+}
+
+% --- Linki ---
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+
+% =================================================================
+
+% --- Numeracja stron na dole, na środku ---
+\usepackage{fancyhdr}
+\pagestyle{plain}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+\begin{document}
+
+% ============================================================================
+% 1.                            Strona tytułowa
+% ============================================================================
+\input{Stronatytulowa}
+% ============================================================================
+
+% 2. Abstrakt
+\newpage
+\pagestyle{plain}
+\input{Abstrakt}
+\clearpage
+
+% 3. Spis treści
+\newpage
+% POPRAWKA 3: Usunięto zbędne środowisko \begin{spacing}
+\tableofcontents
+\clearpage
+
+% 4. Treść merytoryczna
+\input{Wstep}
+\input{Rozdzial1}
+\input{Rozdzial2}
+\input{Rozdzial3}
+\input{Rozdzial4}
+\input{Rozdzial5}
+\input{Podsumowanie}
+
+% 5. Bibliografia
+\clearpage
+\phantomsection
+\printbibliography[title={Bibliografia}, nottype=online, heading=bibintoc]
+
+\clearpage
+\phantomsection
+\printbibliography[title={Netografia}, type=online, heading=bibintoc]
+
+% 6. Spis rysunków
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+
+% 7. Spis tabel
+\clearpage
+\phantomsection 
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+
+% 8. Spis listingów
+\lstlistoflistings
+\end{document}

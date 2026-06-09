@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.iml
 .gradle
 /local.properties
@@ -13,3 +14,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+=======
+/contener things/mysql_data
+>>>>>>> 2c64f584b99a2f4300d2213a1f0979da794b7a05

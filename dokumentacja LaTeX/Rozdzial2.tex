@@ -1,0 +1,43 @@
+\chapter{Analiza wymagań i projekt rozwiązania}
+Analiza ta pozwala na precyzyjne określenie zadań systemu oraz zaplanowanie jego struktury tak, aby wszystkie komponenty współpracowały bezawaryjnie. Dzięki niej możliwe jest wybranie odpowiednich technologii, które najlepiej sprawdzą się w zamierzonym celu aplikacji.
+
+\section{Wymagania funkcjonalne}
+Jak pokazano w tabeli \ref{tab:funkcjonalne}, aplikacja musi spełniać określone funkcje. Każda z nich została przypisana do odpowiedniego modułu, co ułatwia organizację pracy i pozwala na równoległe rozwijanie poszczególnych części projektu.
+\begin{table}[ht!]
+\centering
+\caption{Wymagania funkcjonalne}
+\label{tab:funkcjonalne}
+\begin{tabular}{lll}
+\toprule
+ID & Opis & Priorytet \\  
+\midrule
+FR-001      & Wyświetlanie dzinnika zapisów z datą, godziną i wartościami.    & Wysoki \\
+FR-002      & Przygotowanie dokumentacji w oparcu LaTeX. Wymagania edytorskie.    & Wysoki \\
+FR-003      & Przygotowanie diagramów UML ilustrujących strukturę i zachowanie aplikacji.    & Średni \\
+FR-004      & Utworzenie pliku README.md z opisem projektu i instrukcją instalacji.    & Wysoki \\
+\bottomrule 
+\end{tabular}
+\sourcetab{opracowanie własne}
+\end{table}
+
+\section{Wymagania niefunkcjonalne}
+Jak pokazano w tabeli \ref{tab:niefunkcjonalne}, aplikacja musi spełniać określone standardy wydajności, bezpieczeństwa i kompatybilności.
+\begin{table}[ht!]
+\centering
+\caption{Wymagania niefunkcjonalne}
+\label{tab:niefunkcjonalne}
+\begin{tabular}{lll}
+\toprule
+ID & Opis & Priorytet \\  
+\midrule
+NFR-001      & Czas odpowiedzi UI mniejszy niż 200ms    & Wysoki \\
+NFR-002      & Zużycie baterii mniejszse niż 10\% na godzinę    & Wysoki \\
+NFR-003      & Kompatybilność: Android 8.0+	    & Wysoki \\
+NFR-004      & Dostępność zgodna z WCAG 2.1 na poziomie AA    & Średni \\
+\bottomrule 
+\end{tabular}
+\sourcetab{opracowanie własne}
+\end{table}
+
+\section{Architektura rozwiązania}
+Projekt został oparty na sprawdzonej architekturze, która oddziela warstwę danych od warstwy prezentacji. Sercem komunikacji jest biblioteka Retrofit, która w połączeniu z konwerterem Gson pozwala na błyskawiczne przetwarzanie informacji przesyłanych w formacie JSON. Całość oprogramowania została napisana w języku Java.
