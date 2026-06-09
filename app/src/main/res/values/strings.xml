@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TempMonitor</string>
+    <string name="temp_format">%d°C</string>
+</resources>

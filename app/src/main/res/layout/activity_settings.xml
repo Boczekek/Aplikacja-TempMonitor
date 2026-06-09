@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:layout_marginTop="?attr/actionBarSize"
+    android:padding="16dp">
+
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Wybierz motyw" android:textSize="18sp" android:layout_marginBottom="8dp"/>
+
+    <RadioGroup android:id="@+id/radioGroupTheme" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <RadioButton android:id="@+id/rbSystem" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Systemowy" />
+        <RadioButton android:id="@+id/rbLight" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Jasny" />
+        <RadioButton android:id="@+id/rbDark" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ciemny" />
+    </RadioGroup>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Czas odświeżania (sekundy)" android:textSize="18sp" android:layout_marginTop="20dp"/>
+
+    <EditText android:id="@+id/etInterval" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:inputType="number" android:hint="np. 10" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adres IP serwera (np. 10.0.2.2)"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/etServerIp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textUri"
+        android:hint="np. 10.0.2.2 lub 192.168.1.15" />
+
+    <Button android:id="@+id/btnSave" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Zapisz i wróć" android:layout_marginTop="20dp" />
+</LinearLayout>
