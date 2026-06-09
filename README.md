@@ -78,10 +78,6 @@ Aby aplikacja działała poprawnie, należy skonfigurować **adres IP serwera** 
 | **Architektura**    | Modułowa (MVP-like)                 |
 
 ---
-## 📜 **Licencja**
-Projekt udostępniany na licencji **MIT**. Szczegóły w pliku `LICENSE` (opcjonalnie).
-
----
 ## 💡 **Uwagi**
 - Aplikacja **nie działa bez aktywnego serwera** – upewnij się, że serwer REST API jest uruchomiony i dostępny pod wpisanym adresem IP.
 - W przypadku **błędów połączenia**, sprawdź:
