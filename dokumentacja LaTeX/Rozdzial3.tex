@@ -1,6 +1,6 @@
 \chapter{Opis działania aplikacji}
 
-Rozdział opisuje logikę funkcjonowania aplikacji poprzez opisanie jej poszczególnych funkcjonalności oraz przedstawienie kodu.
+Rozdział opisuje logikę funkcjonowania aplikacji poprzez opisanie jej poszczególnych funkcjonalności oraz przedstawienie kodu. Rozdziały zostały podzielone na opisy poszczególnych warst aplikacji takich jak ogólna struktura i logika aplikacji, struktura klas Java, przepływ danych, interface użytkownika oraz fragmenty kodu aplikacji.
 
 \section{Struktura i logika aplikacji}
 Oprogramowanie zostało zaprojektowane w sposób modułowy, co ułatwia zarządzanie kodem i wprowadzanie ewentualnych poprawek w przyszłości. Główna aktywność zarządza procesem pobierania danych, podczas gdy dedykowana klasa ustawień odpowiada za interakcję z pamięcią trwałą urządzenia. Dzięki takiemu podziałowi, zmiana adresu IP lub interwału czasowego w ustawieniach jest natychmiastowo wykrywana przez moduł komunikacyjny, co pozwala na płynne dostosowanie pracy aplikacji bez konieczności jej restartowania.
@@ -10,7 +10,7 @@ Oprogramowanie zostało zaprojektowane w sposób modułowy, co ułatwia zarządz
 Diagram klas na Rysunku \ref{fig:klasy} pokazuje powiązania między głównymi elementami aplikacji: aktywnościami, modelem danych oraz warstwą komunikacji sieciowej. Pozwala to zrozumieć, jak zbudowana jest struktura programu.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{rysunki/klasy.png} 
+    \includegraphics[width=0.6\textwidth]{rysunki/klasy.png} 
     \caption{Diagram Klas (Struktura aplikacji)}
     \label{fig:klasy} % Klucz dla grafiki PNG
     \sourcefig{opracowanie własne}
@@ -21,7 +21,7 @@ Diagram klas na Rysunku \ref{fig:klasy} pokazuje powiązania między głównymi 
 Diagram sekwencji na Rysunku \ref{fig:dane} przedstawia krok po kroku przebieg komunikacji aplikacji z serwerem i odświeżanie danych. Dzięki temu łatwo prześledzić działanie pętli pobierania informacji.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{rysunki/dane.png} 
+    \includegraphics[width=1\textwidth]{rysunki/dane.png} 
     \caption{Diagram Sekwencji (Przepływ danych)}
     \label{fig:dane} % Klucz dla grafiki PNG
     \sourcefig{opracowanie własne}
@@ -69,15 +69,15 @@ Ekran ustawień został zaprojektowany z myślą o maksymalnej funkcjonalności 
 \pagebreak
 
 \section{Pobieranie danych z REST API}
-Aplikacja korzysta z biblioteki Retrofit do asynchronicznego pobierania danych. Oznacza to, że pobieranie odbywa się w tle i nie zawiesza ekranu użytkownika.
-\begin{lstlisting}[language=Java, caption={Pobieranie danych z API (Fragment ApiService.java)}]
+Aplikacja korzysta z biblioteki Retrofit do asynchronicznego pobierania danych, co zaprezentowano w listingu \ref{lis:REST}. Oznacza to, że pobieranie odbywa się w tle i nie zawiesza ekranu użytkownika.
+\begin{lstlisting}[language=Java, caption={Pobieranie danych z API (Fragment ApiService.java)}, label={lis:REST}]
 @GET("api/pomiary")
 Call<List<Dane>> getWszystkiePomiary();
 \end{lstlisting}
 
 \section{Automatyczne odświeżanie co 10 sekund}
-Zastosowano mechanizm Handler i Runnable, który tworzy pętlę czasową. Funkcja ta jest inteligentna: uruchamia się, gdy aplikacja jest widoczna, i zatrzymuje, gdy użytkownik ją zminimalizuje.
-\begin{lstlisting}[language=Java, caption={Odświeżanie (Fragment MainActivity.java)}]
+W fragmencie kodu z listingu \ref{lis:refresh} zastosowano mechanizm Handler i Runnable, który tworzy pętlę czasową. Funkcja ta jest inteligentna: uruchamia się, gdy aplikacja jest widoczna, i zatrzymuje, gdy użytkownik ją zminimalizuje.
+\begin{lstlisting}[language=Java, caption={Odświeżanie (Fragment MainActivity.java)}, label={lis:refresh}]
     refreshRunnable = new Runnable() {
     @Override
     public void run() {
@@ -89,7 +89,7 @@ Zastosowano mechanizm Handler i Runnable, który tworzy pętlę czasową. Funkcj
 
 \section{Logika wyświetlania aktualnej temperatury}
 Aplikacja nie potrzebuje osobnego zapytania o jedną temperaturę. Pobiera całą listę, a następnie wybiera z niej ostatni element, aby wyświetlić go jako stan aktualny.
-\begin{lstlisting}[language=Java, caption={Wyswietlanie "Aktualnej temperatury" (Fragment MainActivity.java)}]
+\begin{lstlisting}[language=Java, caption={Wyswietlanie "Aktualnej temperatury" (Fragment MainActivity.java)}, label={lis:temp}]
     if (!daneList.isEmpty()) {
     Dane ostatni = daneList.get(daneList.size() - 1); // Pobranie najnowszego wpisu
     tvCurrentTemp.setText(ostatni.getTemperatura() + "'C");
@@ -99,7 +99,7 @@ Aplikacja nie potrzebuje osobnego zapytania o jedną temperaturę. Pobiera cał�
 
 \section{Wyświetlanie dziennika}
 Adapter bierze surowe dane i wstrzykuje je w odpowiednie pola tekstowe w layoucie.
-\begin{lstlisting}[language=Java, caption={Wyswietlanie diennika (Fragment DaneAdapter.java)}]
+\begin{lstlisting}[language=Java, caption={Wyswietlanie diennika (Fragment DaneAdapter.java)}, label={lis:dziennik}]
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
     Dane d = lista.get(position);
